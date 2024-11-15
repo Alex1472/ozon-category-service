@@ -34,6 +34,7 @@ func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) 
 	if err := desc.RegisterSampleServiceHandler(context.Background(), mux, conn); err != nil {
 		log.Fatal().Err(err).Msg("Failed registration handler")
 	}
+	//
 
 	gatewayServer := &http.Server{
 		Addr:    gatewayAddr,
