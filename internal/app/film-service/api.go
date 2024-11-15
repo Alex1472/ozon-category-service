@@ -5,9 +5,9 @@ import (
 )
 
 type Implementation struct {
-	desc.UnimplementedSampleServiceServer
+	desc.UnimplementedFilmServiceServer
 }
 
-func NewSampleService() desc.SampleServiceServer {
+func NewCategoryService() desc.FilmServiceServer {
 	return &Implementation{}
 }

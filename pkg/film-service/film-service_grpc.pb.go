@@ -14,86 +14,86 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// SampleServiceClient is the client API for SampleService service.
+// FilmServiceClient is the client API for FilmService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SampleServiceClient interface {
-	SampleMethodV1(ctx context.Context, in *SampleMethodV1Request, opts ...grpc.CallOption) (*SampleMethodV1Response, error)
+type FilmServiceClient interface {
+	GetCategoryById(ctx context.Context, in *GetCategoryByIdRequest, opts ...grpc.CallOption) (*GetCategoryByIdResponse, error)
 }
 
-type sampleServiceClient struct {
+type filmServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSampleServiceClient(cc grpc.ClientConnInterface) SampleServiceClient {
-	return &sampleServiceClient{cc}
+func NewFilmServiceClient(cc grpc.ClientConnInterface) FilmServiceClient {
+	return &filmServiceClient{cc}
 }
 
-func (c *sampleServiceClient) SampleMethodV1(ctx context.Context, in *SampleMethodV1Request, opts ...grpc.CallOption) (*SampleMethodV1Response, error) {
-	out := new(SampleMethodV1Response)
-	err := c.cc.Invoke(ctx, "/alex1472.ozon_film_service.film_service.v1.SampleService/SampleMethodV1", in, out, opts...)
+func (c *filmServiceClient) GetCategoryById(ctx context.Context, in *GetCategoryByIdRequest, opts ...grpc.CallOption) (*GetCategoryByIdResponse, error) {
+	out := new(GetCategoryByIdResponse)
+	err := c.cc.Invoke(ctx, "/alex1472.ozon_film_service.film_service.v1.FilmService/GetCategoryById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SampleServiceServer is the server API for SampleService service.
-// All implementations must embed UnimplementedSampleServiceServer
+// FilmServiceServer is the server API for FilmService service.
+// All implementations must embed UnimplementedFilmServiceServer
 // for forward compatibility
-type SampleServiceServer interface {
-	SampleMethodV1(context.Context, *SampleMethodV1Request) (*SampleMethodV1Response, error)
-	mustEmbedUnimplementedSampleServiceServer()
+type FilmServiceServer interface {
+	GetCategoryById(context.Context, *GetCategoryByIdRequest) (*GetCategoryByIdResponse, error)
+	mustEmbedUnimplementedFilmServiceServer()
 }
 
-// UnimplementedSampleServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedSampleServiceServer struct {
+// UnimplementedFilmServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedFilmServiceServer struct {
 }
 
-func (UnimplementedSampleServiceServer) SampleMethodV1(context.Context, *SampleMethodV1Request) (*SampleMethodV1Response, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SampleMethodV1 not implemented")
+func (UnimplementedFilmServiceServer) GetCategoryById(context.Context, *GetCategoryByIdRequest) (*GetCategoryByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCategoryById not implemented")
 }
-func (UnimplementedSampleServiceServer) mustEmbedUnimplementedSampleServiceServer() {}
+func (UnimplementedFilmServiceServer) mustEmbedUnimplementedFilmServiceServer() {}
 
-// UnsafeSampleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SampleServiceServer will
+// UnsafeFilmServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FilmServiceServer will
 // result in compilation errors.
-type UnsafeSampleServiceServer interface {
-	mustEmbedUnimplementedSampleServiceServer()
+type UnsafeFilmServiceServer interface {
+	mustEmbedUnimplementedFilmServiceServer()
 }
 
-func RegisterSampleServiceServer(s grpc.ServiceRegistrar, srv SampleServiceServer) {
-	s.RegisterService(&SampleService_ServiceDesc, srv)
+func RegisterFilmServiceServer(s grpc.ServiceRegistrar, srv FilmServiceServer) {
+	s.RegisterService(&FilmService_ServiceDesc, srv)
 }
 
-func _SampleService_SampleMethodV1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SampleMethodV1Request)
+func _FilmService_GetCategoryById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCategoryByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SampleServiceServer).SampleMethodV1(ctx, in)
+		return srv.(FilmServiceServer).GetCategoryById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/alex1472.ozon_film_service.film_service.v1.SampleService/SampleMethodV1",
+		FullMethod: "/alex1472.ozon_film_service.film_service.v1.FilmService/GetCategoryById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SampleServiceServer).SampleMethodV1(ctx, req.(*SampleMethodV1Request))
+		return srv.(FilmServiceServer).GetCategoryById(ctx, req.(*GetCategoryByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SampleService_ServiceDesc is the grpc.ServiceDesc for SampleService service.
+// FilmService_ServiceDesc is the grpc.ServiceDesc for FilmService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SampleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "alex1472.ozon_film_service.film_service.v1.SampleService",
-	HandlerType: (*SampleServiceServer)(nil),
+var FilmService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "alex1472.ozon_film_service.film_service.v1.FilmService",
+	HandlerType: (*FilmServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SampleMethodV1",
-			Handler:    _SampleService_SampleMethodV1_Handler,
+			MethodName: "GetCategoryById",
+			Handler:    _FilmService_GetCategoryById_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
