@@ -1,4 +1,4 @@
-module github.com/ozonmp/omp-grpc-template/pkg/sample-service
+module github.com/Alex1472/ozon-film-service/pkg/film-service
 
 go 1.17
 

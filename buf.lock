@@ -4,14 +4,8 @@ deps:
   - remote: buf.build
     owner: envoyproxy
     repository: protoc-gen-validate
-    branch: main
-    commit: bb405eae115246f0b5ccf8997136e3d8
-    digest: b1-BJUoAjBMVXaIMUNFJ5kdGr-be0QDwhDSTEDQpoxXzys=
-    create_time: 2021-08-20T15:05:15.02577Z
+    commit: daf171c6cdb54629b5f51e345a79e4dd
   - remote: buf.build
     owner: googleapis
     repository: googleapis
-    branch: main
-    commit: cd101b0abb7b4404a0b1ecc1afd4ce10
-    digest: b1-H4GHwHVHcJBbVPg-Cdmnx812reFCDQws_QoQ0W2hYQA=
-    create_time: 2021-10-23T15:04:06.087748Z
+    commit: 553fd4b4b3a640be9b69a3fa0c17b383

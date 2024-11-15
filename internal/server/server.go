@@ -21,9 +21,9 @@ import (
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 
-	api "github.com/ozonmp/omp-grpc-template/internal/app/sample-service"
-	"github.com/ozonmp/omp-grpc-template/internal/config"
-	desc "github.com/ozonmp/omp-grpc-template/pkg/sample-service"
+	api "github.com/Alex1472/ozon-film-service/internal/app/film-service"
+	"github.com/Alex1472/ozon-film-service/internal/config"
+	desc "github.com/Alex1472/ozon-film-service/pkg/film-service"
 )
 
 type GrpcServer struct {

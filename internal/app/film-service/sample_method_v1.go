@@ -1,4 +1,4 @@
-package sample_service
+package film_service
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	desc "github.com/ozonmp/omp-grpc-template/pkg/sample-service"
+	desc "github.com/Alex1472/ozon-film-service/pkg/film-service"
 )
 
 func (i *Implementation) SampleMethodV1(

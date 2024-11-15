@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "api/sample-service/sample-service.proto",
+    "title": "api/film-service/film-service.proto",
     "version": "version not set"
   },
   "tags": [
@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/sample": {
+    "/alex1472.ozon_film_service.film_service.v1.SampleService/SampleMethodV1": {
       "post": {
         "operationId": "SampleService_SampleMethodV1",
         "responses": {

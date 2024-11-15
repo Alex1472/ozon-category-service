@@ -5,8 +5,8 @@ endif
 
 export GO111MODULE=on
 
-SERVICE_NAME=omp-grpc-template
-SERVICE_PATH=ozonmp/omp-grpc-template
+SERVICE_NAME=ozon-film-service
+SERVICE_PATH=ozonmp/ozon-film-service
 
 OS_NAME=$(shell uname -s)
 OS_ARCH=$(shell uname -m)
@@ -43,9 +43,9 @@ deps:
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.5.0
 	go install github.com/envoyproxy/protoc-gen-validate@v0.6.1
 	go install github.com/bufbuild/buf/cmd/buf@v0.56.0
-	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v0.56.0
-	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v0.56.0
-	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.1
+	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v1.3.1
+	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v1.3.1
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.3.1
 
 .PHONY: build
 build: generate .build

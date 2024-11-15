@@ -2,15 +2,15 @@ package server
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"net/http"
 
 	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/opentracing/opentracing-go"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 
-	desc "github.com/ozonmp/omp-grpc-template/pkg/sample-service"
+	desc "github.com/Alex1472/ozon-film-service/pkg/film-service"
 )
 
 func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) *http.Server {
