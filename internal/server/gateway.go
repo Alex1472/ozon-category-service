@@ -10,7 +10,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 
-	desc "github.com/Alex1472/ozon-film-service/pkg/film-service"
+	desc "github.com/Alex1472/ozon-category-service/pkg/category-service"
 )
 
 func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) *http.Server {
@@ -31,7 +31,7 @@ func createGatewayServer(grpcAddr, gatewayAddr string, allowedOrigins []string) 
 	}
 
 	mux := runtime.NewServeMux()
-	if err := desc.RegisterFilmServiceHandler(context.Background(), mux, conn); err != nil {
+	if err := desc.RegisterCategoryServiceHandler(context.Background(), mux, conn); err != nil {
 		log.Fatal().Err(err).Msg("Failed registration handler")
 	}
 	//

@@ -1,4 +1,4 @@
-package film
+package category
 
 import (
 	"github.com/pkg/errors"

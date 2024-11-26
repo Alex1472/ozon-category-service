@@ -5,8 +5,8 @@ endif
 
 export GO111MODULE=on
 
-SERVICE_NAME=ozon-film-service
-SERVICE_PATH=ozonmp/ozon-film-service
+SERVICE_NAME=ozon-category-service
+SERVICE_PATH=ozonmp/ozon-category-service
 
 OS_NAME=$(shell uname -s)
 OS_ARCH=$(shell uname -m)

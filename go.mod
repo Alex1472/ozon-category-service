@@ -1,9 +1,9 @@
-module github.com/Alex1472/ozon-film-service
+module github.com/Alex1472/ozon-category-service
 
 go 1.16
 
 require (
-	github.com/Alex1472/ozon-film-service/pkg/film-service v0.0.1
+	github.com/Alex1472/ozon-category-service/pkg/category-service v0.0.1
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
 	github.com/jackc/pgx/v4 v4.13.0
@@ -19,4 +19,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
-replace github.com/Alex1472/ozon-film-service/pkg/film-service => ./pkg/film-service
+replace github.com/Alex1472/ozon-category-service/pkg/category-service => ./pkg/category-service

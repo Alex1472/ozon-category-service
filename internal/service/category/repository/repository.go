@@ -1,11 +1,11 @@
-package film_repository
+package category_repository
 
 import (
 	"context"
-	"github.com/Alex1472/ozon-film-service/internal/service/film"
+	"github.com/Alex1472/ozon-category-service/internal/service/category"
 )
 
-var categories = film.Categories{
+var categories = category.Categories{
 	{
 		ID:   1,
 		Name: "Toys",
@@ -27,6 +27,6 @@ func New() *Repository {
 	return &Repository{}
 }
 
-func (r *Repository) FindAllCategories(_ context.Context) (film.Categories, error) {
+func (r *Repository) FindAllCategories(_ context.Context) (category.Categories, error) {
 	return categories, nil
 }

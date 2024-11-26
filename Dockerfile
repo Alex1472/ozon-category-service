@@ -1,6 +1,6 @@
 # Builder
 
-ARG GITHUB_PATH=github.com/Alex1472/ozon-film-service
+ARG GITHUB_PATH=github.com/Alex1472/ozon-category-service
 
 FROM golang:1.16-alpine AS builder
 RUN apk add --update make git protoc protobuf protobuf-dev curl

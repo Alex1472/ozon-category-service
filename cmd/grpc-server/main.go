@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/Alex1472/ozon-film-service/internal/service/film"
+	"github.com/Alex1472/ozon-category-service/internal/service/category"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -11,9 +11,9 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 
-	"github.com/Alex1472/ozon-film-service/internal/config"
-	"github.com/Alex1472/ozon-film-service/internal/server"
-	"github.com/Alex1472/ozon-film-service/internal/service/film/repository"
+	"github.com/Alex1472/ozon-category-service/internal/config"
+	"github.com/Alex1472/ozon-category-service/internal/server"
+	"github.com/Alex1472/ozon-category-service/internal/service/category/repository"
 )
 
 func main() {
@@ -36,10 +36,10 @@ func main() {
 		zerolog.SetGlobalLevel(zerolog.DebugLevel)
 	}
 
-	filmRepository := film_repository.New()
-	filmService := film.New(filmRepository)
+	categoryRepository := category_repository.New()
+	categoryService := category.New(categoryRepository)
 
-	if err := server.NewGrpcServer(filmService).Start(&cfg); err != nil {
+	if err := server.NewGrpcServer(categoryService).Start(&cfg); err != nil {
 		log.Error().Err(err).Msg("Failed creating gRPC server")
 
 		return

@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/Alex1472/ozon-film-service/internal/service/film"
+	"github.com/Alex1472/ozon-category-service/internal/service/category"
 	"net"
 	"net/http"
 	"os"
@@ -22,17 +22,17 @@ import (
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 
-	api "github.com/Alex1472/ozon-film-service/internal/app/film-service"
-	"github.com/Alex1472/ozon-film-service/internal/config"
-	desc "github.com/Alex1472/ozon-film-service/pkg/film-service"
+	api "github.com/Alex1472/ozon-category-service/internal/app/category-service"
+	"github.com/Alex1472/ozon-category-service/internal/config"
+	desc "github.com/Alex1472/ozon-category-service/pkg/category-service"
 )
 
 type GrpcServer struct {
-	filmService film.Service
+	categoryService category.Service
 }
 
-func NewGrpcServer(filmService film.Service) *GrpcServer {
-	return &GrpcServer{filmService: filmService}
+func NewGrpcServer(categoryService category.Service) *GrpcServer {
+	return &GrpcServer{categoryService: categoryService}
 }
 
 func (s *GrpcServer) Start(cfg *config.Config) error {
@@ -85,7 +85,7 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	desc.RegisterFilmServiceServer(grpcServer, api.NewCategoryService(s.filmService))
+	desc.RegisterCategoryServiceServer(grpcServer, api.NewCategoryService(s.categoryService))
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

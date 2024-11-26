@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "api/film-service/film-service.proto",
+    "title": "api/category-service/category-service.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "FilmService"
+      "name": "CategoryService"
     }
   ],
   "consumes": [
@@ -16,9 +16,9 @@
     "application/json"
   ],
   "paths": {
-    "/alex1472.ozon_film_service.film_service.v1.FilmService/GetCategoryById": {
+    "/alex1472.ozon_category_service.category_service.v1.CategoryService/GetCategoryById": {
       "post": {
-        "operationId": "FilmService_GetCategoryById",
+        "operationId": "CategoryService_GetCategoryById",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -44,7 +44,7 @@
           }
         ],
         "tags": [
-          "FilmService"
+          "CategoryService"
         ]
       }
     }
