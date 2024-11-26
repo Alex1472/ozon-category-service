@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/Alex1472/ozon-film-service/internal/service/film"
 	"net"
 	"net/http"
 	"os"
@@ -27,10 +28,11 @@ import (
 )
 
 type GrpcServer struct {
+	filmService film.Service
 }
 
-func NewGrpcServer() *GrpcServer {
-	return &GrpcServer{}
+func NewGrpcServer(filmService film.Service) *GrpcServer {
+	return &GrpcServer{filmService: filmService}
 }
 
 func (s *GrpcServer) Start(cfg *config.Config) error {
@@ -83,7 +85,7 @@ func (s *GrpcServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	desc.RegisterFilmServiceServer(grpcServer, api.NewCategoryService())
+	desc.RegisterFilmServiceServer(grpcServer, api.NewCategoryService(s.filmService))
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

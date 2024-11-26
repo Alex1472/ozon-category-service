@@ -42,7 +42,7 @@ deps:
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.5.0
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.5.0
 	go install github.com/envoyproxy/protoc-gen-validate@v0.6.1
-	go install github.com/bufbuild/buf/cmd/buf@v0.56.0
+	go install github.com/bufbuild/buf/cmd/buf@v1.3.1
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking@v1.3.1
 	go install github.com/bufbuild/buf/cmd/protoc-gen-buf-lint@v1.3.1
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.3.1
